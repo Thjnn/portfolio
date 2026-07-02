@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cao Phúc Thịnh — Web Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Cao Phuc Thinh, frontend & fullstack web developer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar-inner">
+        <a href="#home" class="logo">CP<span>.</span>Thinh</a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#about" data-text="Giới thiệu">Giới thiệu</a>
+          <a href="#skills" data-text="Kỹ năng">Kỹ năng</a>
+          <a href="#projects" data-text="Dự án">Dự án</a>
+          <a href="#contact" data-text="Liên hệ">Liên hệ</a>
+        </nav>
+        <a href="#contact" class="btn btn-small nav-cta">Liên hệ ngay</a>
+        <button class="burger" id="burger" aria-label="Mở menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg">
+        <div class="grid-pattern"></div>
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+      <div class="container hero-inner">
+        <p class="eyebrow reveal-up">Web Developer · Tiền Giang University</p>
+        <h1 class="hero-title">
+          <span class="line reveal-up">Xin chào, mình là</span>
+          <span class="line name-line reveal-up">Cao Phúc Thịnh</span>
+        </h1>
+        <p class="hero-subtitle reveal-up">
+          Sinh viên năm 3 ngành Phát triển Web — xây dựng những sản phẩm
+          <strong> sạch, nhanh và có chiều sâu kỹ thuật</strong>, từ hệ thống
+          backend phức tạp đến giao diện chuyển động ấn tượng.
+        </p>
+        <div class="hero-actions reveal-up">
+          <a href="#projects" class="btn btn-primary"
+            >Xem dự án <span class="arrow">→</span></a
+          >
+          <a
+            href="https://github.com/Thjnn"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+            >GitHub</a
+          >
+        </div>
+        <div class="hero-stats reveal-up">
+          <div class="stat">
+            <span class="stat-number" data-count="21">0</span>
+            <span class="stat-label">Bảng dữ liệu trong ZomZop</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="6">0</span>
+            <span class="stat-label">Vai trò người dùng</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-count="3">0</span>
+            <span class="stat-label">Dự án trên GitHub</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="scroll-cue" aria-label="Cuộn xuống">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container">
+        <p class="section-tag reveal-up">01 — Giới thiệu</p>
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 class="reveal-up">
+              Kết hợp tư duy hệ thống với<br />
+              con mắt thẩm mỹ giao diện.
+            </h2>
+            <p class="reveal-up">
+              Mình là Thịnh, sinh viên năm 3 ngành Công nghệ thông tin tại
+              Trường Đại học Tiền Giang. Mình tập trung vào hai mảng song song:
+              xây dựng hệ thống backend chắc chắn với Laravel/MySQL, và tạo ra
+              những giao diện frontend chuyển động, có cảm xúc bằng GSAP và
+              Three.js.
+            </p>
+            <p class="reveal-up">
+              Đồ án tốt nghiệp <strong>ZomZop</strong> — hệ thống đặt món ăn
+              nhanh đa chi nhánh — là minh chứng cho cách mình tiếp cận vấn đề:
+              chia nhỏ bài toán lớn (21 bảng dữ liệu, 6 vai trò, chấm công bằng
+              nhận diện khuôn mặt, gợi ý món bằng AI) thành các phần có thể kiểm
+              soát được.
+            </p>
+            <div class="about-tags reveal-up">
+              <span>Laravel</span><span>PHP</span><span>MySQL</span>
+              <span>Three.js</span><span>GSAP</span><span>Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="about-card reveal-up">
+            <div class="about-card-glow"></div>
+            <div class="about-card-row">
+              <span class="dot dot-blue"></span>
+              <div>
+                <strong>Hiện tại</strong>
+                <p>Hoàn thiện backend đồ án tốt nghiệp ZomZop</p>
+              </div>
+            </div>
+            <div class="about-card-row">
+              <span class="dot dot-cyan"></span>
+              <div>
+                <strong>Đam mê</strong>
+                <p>Cinematic UI, scroll animation, 3D trên web</p>
+              </div>
+            </div>
+            <div class="about-card-row">
+              <span class="dot dot-navy"></span>
+              <div>
+                <strong>Đang học</strong>
+                <p>Hệ điều hành, AI tìm kiếm A*, phát triển Android</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <p class="section-tag reveal-up">02 — Kỹ năng</p>
+        <h2 class="reveal-up">
+          Công cụ mình dùng để biến ý tưởng thành sản phẩm.
+        </h2>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal-up">
+            <span class="skill-index">01</span>
+            <h3>Frontend</h3>
+            <p>HTML5, CSS3, JavaScript (ES6+), GSAP, Three.js, Tailwind CSS</p>
+            <div class="skill-bar"><span style="--w: 90%"></span></div>
+          </div>
+          <div class="skill-card reveal-up">
+            <span class="skill-index">02</span>
+            <h3>Backend</h3>
+            <p>PHP 8.3, Laravel 13, MySQL, Laravel Reverb, REST API</p>
+            <div class="skill-bar"><span style="--w: 85%"></span></div>
+          </div>
+          <div class="skill-card reveal-up">
+            <span class="skill-index">03</span>
+            <h3>Tích hợp AI &amp; thiết bị</h3>
+            <p>Gemini API, face-api.js, nhận diện khuôn mặt thời gian thực</p>
+            <div class="skill-bar"><span style="--w: 75%"></span></div>
+          </div>
+          <div class="skill-card reveal-up">
+            <span class="skill-index">04</span>
+            <h3>Công cụ &amp; quy trình</h3>
+            <p>Git/GitHub, PWA, Mermaid ERD, Figma cơ bản</p>
+            <div class="skill-bar"><span style="--w: 80%"></span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <p class="section-tag reveal-up">03 — Dự án</p>
+        <h2 class="reveal-up">Một vài dự án mình đã xây dựng.</h2>
+
+        <div class="project-list">
+          <article class="project-row reveal-up">
+            <div class="project-info">
+              <span class="project-num">01</span>
+              <h3>ZomZop</h3>
+              <p>
+                Hệ thống đặt món ăn nhanh đa chi nhánh — đồ án tốt nghiệp.
+                Laravel 13, MySQL, Gemini AI gợi ý món, Laravel Reverb realtime,
+                chấm công bằng nhận diện khuôn mặt, hỗ trợ PWA.
+              </p>
+              <div class="project-tags">
+                <span>Laravel</span><span>MySQL</span><span>Gemini API</span
+                ><span>face-api.js</span>
+              </div>
+              <a
+                href="https://github.com/Thjnn/ZomZop"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+              >
+                Xem trên GitHub <span class="arrow">→</span>
+              </a>
+            </div>
+            <div class="project-visual">
+              <div class="visual-frame zomzop-visual">
+                <div class="bars">
+                  <span></span><span></span><span></span><span></span
+                  ><span></span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-row reverse reveal-up">
+            <div class="project-info">
+              <span class="project-num">02</span>
+              <h3>Văn Phòng UniStyle</h3>
+              <p>
+                Hệ thống quản trị bán hàng cho cửa hàng thời trang — quản lý đơn
+                hàng, kho hàng, khuyến mãi và banner quảng cáo trên một
+                dashboard admin đầy đủ, thiết kế CSDL với ERD 18 bảng.
+              </p>
+              <div class="project-tags">
+                <span>PHP</span><span>MySQL</span><span>Admin Dashboard</span>
+              </div>
+              <a
+                href="https://github.com/Thjnn/UniStyle"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+              >
+                Xem trên GitHub <span class="arrow">→</span>
+              </a>
+            </div>
+            <div class="project-visual">
+              <div class="visual-frame unistyle-visual">
+                <div class="us-sidebar"></div>
+                <div class="us-main">
+                  <div class="us-card"></div>
+                  <div class="us-card"></div>
+                  <div class="us-row"></div>
+                  <div class="us-row"></div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-row reveal-up">
+            <div class="project-info">
+              <span class="project-num">03</span>
+              <h3>Petio</h3>
+              <p>
+                Website cửa hàng &amp; dịch vụ chăm sóc thú cưng — đa trang gồm
+                shop, đặt lịch spa, blog, đăng nhập/đăng ký và trang liên hệ,
+                xây dựng hoàn toàn bằng HTML/CSS/JS thuần.
+              </p>
+              <div class="project-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+              </div>
+              <a
+                href="https://github.com/Thjnn/Petio"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+              >
+                Xem trên GitHub <span class="arrow">→</span>
+              </a>
+            </div>
+            <div class="project-visual">
+              <div class="visual-frame petio-visual">
+                <div class="pt-card"></div>
+                <div class="pt-card"></div>
+                <div class="pt-card"></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact-inner">
+        <p class="section-tag reveal-up">04 — Liên hệ</p>
+        <h2 class="reveal-up">Cùng trao đổi về dự án tiếp theo nhé.</h2>
+        <p class="contact-text reveal-up">
+          Mình luôn sẵn lòng trao đổi về cơ hội thực tập, dự án freelance hoặc
+          đơn giản là nói về frontend animation.
+        </p>
+        <div class="contact-actions reveal-up">
+          <a href="mailto:thinh.cao@example.com" class="btn btn-primary"
+            >thinh.cao@example.com</a
+          >
+          <a
+            href="https://github.com/Thjnn"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost"
+            >github.com/Thjnn</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© 2026 Cao Phúc Thịnh.</span>
+        <a href="#home">Về đầu trang ↑</a>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
