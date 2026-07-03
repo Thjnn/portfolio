@@ -216,6 +216,19 @@ h3 {
   height: 2px;
   background: var(--navy);
   border-radius: 2px;
+  transition:
+    transform 0.35s var(--ease),
+    opacity 0.25s var(--ease);
+}
+
+.burger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ===== Hero ===== */
@@ -269,7 +282,92 @@ h3 {
 .hero-inner {
   position: relative;
   z-index: 1;
-  max-width: 760px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: center;
+}
+.hero-copy {
+  max-width: 560px;
+}
+
+/* ===== Hero floating UI cards ===== */
+.hero-visuals {
+  position: relative;
+  height: 540px;
+}
+.hero-visual-glow {
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(
+    circle at 62% 42%,
+    rgba(59, 122, 254, 0.16),
+    transparent 62%
+  );
+  filter: blur(6px);
+  z-index: 0;
+}
+.float-card {
+  position: absolute;
+  width: 300px;
+  background: var(--white);
+  border-radius: 14px;
+  border: 1px solid rgba(15, 42, 94, 0.08);
+  box-shadow:
+    0 24px 48px -18px rgba(15, 27, 59, 0.28),
+    0 8px 18px -8px rgba(15, 27, 59, 0.14);
+  overflow: hidden;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.float-card .mockup-body {
+  aspect-ratio: 16 / 10;
+}
+.card-unistyle {
+  width: 280px;
+  left: 2%;
+  top: 6%;
+  z-index: 3;
+}
+.card-zomzop {
+  width: 320px;
+  right: 0%;
+  top: 30%;
+  z-index: 4;
+}
+.card-petio {
+  width: 210px;
+  left: 20%;
+  bottom: 4%;
+  z-index: 2;
+}
+.float-badge {
+  position: absolute;
+  top: 4%;
+  right: 8%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 16px;
+  border-radius: 999px;
+  box-shadow: 0 16px 32px -14px rgba(15, 27, 59, 0.45);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(34, 184, 232, 0.3);
+  flex-shrink: 0;
 }
 .eyebrow {
   font-family: var(--font-mono);
@@ -392,7 +490,7 @@ section {
 }
 .section-tag {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--blue-600);
   font-weight: 600;
   margin-bottom: 14px;
@@ -490,7 +588,7 @@ section {
 /* ===== Skills ===== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
 .skill-card {
@@ -843,6 +941,25 @@ section {
   .project-visual {
     order: -1;
   }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero-copy {
+    max-width: 100%;
+  }
+  .hero-visuals {
+    height: 400px;
+    margin-top: 12px;
+  }
+  .card-unistyle {
+    width: 220px;
+  }
+  .card-zomzop {
+    width: 250px;
+  }
+  .card-petio {
+    width: 170px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -861,6 +978,23 @@ section {
   }
   section {
     padding: 90px 0;
+  }
+  .hero-visuals {
+    height: 300px;
+  }
+  .card-petio,
+  .float-badge {
+    display: none;
+  }
+  .card-unistyle {
+    width: 190px;
+    left: 0;
+    top: 2%;
+  }
+  .card-zomzop {
+    width: 210px;
+    right: 0;
+    top: 34%;
   }
 }
 

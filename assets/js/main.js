@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function onScroll() {
     navbar.classList.toggle("scrolled", window.scrollY > 10);
 
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
     progressBar.style.width = progress + "%";
   }
@@ -37,26 +38,82 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.getElementById("navLinks");
   burger.addEventListener("click", () => {
     navLinks.classList.toggle("open");
+    burger.classList.toggle("active");
   });
   navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => navLinks.classList.remove("open"));
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      burger.classList.remove("active");
+    });
   });
 
   /* ---------- Hero entrance ---------- */
-  gsap.timeline({ defaults: { ease: "power3.out", duration: 0.9 } })
+  const floatCards = gsap.utils.toArray(".float-card, .float-badge");
+
+  // Fixed base tilt per card (kept constant through entrance + idle loop)
+  floatCards.forEach((card) => {
+    const rot = parseFloat(card.dataset.rot) || 0;
+    gsap.set(card, { rotation: rot, y: 46, scale: 0.92, opacity: 0 });
+  });
+
+  gsap
+    .timeline({ defaults: { ease: "power3.out", duration: 0.9 } })
     .to(".eyebrow", { opacity: 1, y: 0 })
     .to(".hero-title .line", { opacity: 1, y: 0, stagger: 0.12 }, "-=0.5")
     .to(".hero-subtitle", { opacity: 1, y: 0 }, "-=0.5")
     .to(".hero-actions", { opacity: 1, y: 0 }, "-=0.5")
-    .to(".hero-stats", { opacity: 1, y: 0 }, "-=0.5");
+    .to(".hero-stats", { opacity: 1, y: 0 }, "-=0.5")
+    .to(
+      floatCards,
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.14,
+        duration: 1,
+        ease: "back.out(1.4)",
+        onComplete: startFloatIdle,
+      },
+      "-=0.6",
+    );
+
+  /* ---------- Idle float loop for hero cards ---------- */
+  function startFloatIdle() {
+    floatCards.forEach((card, i) => {
+      gsap.to(card, {
+        y: "+=16",
+        duration: 2.6 + i * 0.4,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: i * 0.2,
+      });
+    });
+  }
+
+  /* ---------- Hero cards parallax on mouse move ---------- */
+  if (floatCards.length) {
+    window.addEventListener("mousemove", (e) => {
+      const px = e.clientX / window.innerWidth - 0.5;
+      const py = e.clientY / window.innerHeight - 0.5;
+      floatCards.forEach((card) => {
+        const depth = parseFloat(card.dataset.depth) || 0.6;
+        gsap.to(card, {
+          x: px * 30 * depth,
+          duration: 1.4,
+          ease: "power2.out",
+        });
+      });
+    });
+  }
 
   /* ---------- Scroll reveal — Hiệu ứng 2 chiều mượt mà (Cuộn xuống hiện / Cuộn lên ẩn) ---------- */
   const REVEAL_TYPES = {
-    "reveal-up":     { opacity: 1, y: 0 },
-    "reveal-left":   { opacity: 1, x: 0 },
-    "reveal-right":  { opacity: 1, x: 0 },
-    "reveal-scale":  { opacity: 1, scale: 1 },
-    "clip-reveal":   { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
+    "reveal-up": { opacity: 1, y: 0 },
+    "reveal-left": { opacity: 1, x: 0 },
+    "reveal-right": { opacity: 1, x: 0 },
+    "reveal-scale": { opacity: 1, scale: 1 },
+    "clip-reveal": { clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" },
   };
 
   // Khởi tạo trạng thái ẩn ban đầu bằng GSAP để tránh xung đột hoặc ẩn vĩnh viễn trong CSS
@@ -68,10 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   Object.entries(REVEAL_TYPES).forEach(([className, vars]) => {
     // Lọc bỏ các phần tử nằm trong .hero vì đã chạy hiệu ứng ở Hero entrance timeline riêng phía trên
-    const els = gsap.utils.toArray("." + className).filter(
-      (el) => !el.closest(".hero")
-    );
-    
+    const els = gsap.utils
+      .toArray("." + className)
+      .filter((el) => !el.closest(".hero"));
+
     if (!els.length) return;
 
     // Gom nhóm theo data-stagger để tạo hiệu ứng chạy so le nếu cần
@@ -84,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     groups.forEach((groupEls, triggerParent) => {
       const delay = parseFloat(triggerParent.dataset.staggerDelay) || 0.08;
-      
+
       if (groupEls.length === 1) {
         gsap.to(groupEls[0], {
           ...vars,
@@ -92,8 +149,8 @@ document.addEventListener("DOMContentLoaded", () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: groupEls[0],
-            start: "top 88%",                     // Kích hoạt khi đỉnh phần tử chạm 88% màn hình từ trên xuống
-            end: "bottom 10%",                   // Điểm chốt kết thúc khi phần tử cuộn ngược vượt hẳn lên trên
+            start: "top 88%", // Kích hoạt khi đỉnh phần tử chạm 88% màn hình từ trên xuống
+            end: "bottom 10%", // Điểm chốt kết thúc khi phần tử cuộn ngược vượt hẳn lên trên
             toggleActions: "play reverse play reverse", // Hiệu ứng 2 chiều phản hồi theo hướng cuộn
           },
         });

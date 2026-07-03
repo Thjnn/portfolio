@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAO PHUC THINH — CYBERPUNK</title>
+  <meta name="description" content="Cyberpunk portfolio of Cao Phuc Thinh — frontend & fullstack developer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   CYBERPUNK PORTFOLIO — Cao Phuc Thinh
+   ========================================================= */
+
+:root {
+  --bg: #0a0b0e;
+  --surface: #12141a;
+  --surface-2: #1a1d27;
+  --border: #1e2230;
+  --cyan: #00f0ff;
+  --magenta: #ff006e;
+  --yellow: #f9ff00;
+  --green: #00ff88;
+  --text: #c8ccd4;
+  --text-muted: #6b7280;
+  --font-display: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-body: 'Inter', sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.3), 0 0 60px rgba(0, 240, 255, 0.1);
+  --glow-magenta: 0 0 20px rgba(255, 0, 110, 0.3), 0 0 60px rgba(255, 0, 110, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 240, 255, 0.015) 2px,
+    rgba(0, 240, 255, 0.015) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+::selection { background: var(--cyan); color: var(--bg); }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+section { padding: 140px 0; position: relative; scroll-margin-top: 80px; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-tag::before {
+  content: '// ';
+  color: var(--magenta);
+}
+.section-tag::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), transparent);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 48px;
+}
+
+/* ===== SCANLINE ===== */
+.scanline {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 240, 255, 0.06);
+  z-index: 9998;
+  animation: scanline-move 8s linear infinite;
+  pointer-events: none;
+}
+@keyframes scanline-move {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* ===== GLITCH ===== */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.glitch-text:hover::before {
+  opacity: 0.7;
+  color: var(--magenta);
+  clip-path: inset(10% 0 70% 0);
+  animation: glitch-1 0.3s ease-in-out 2;
+}
+.glitch-text:hover::after {
+  opacity: 0.7;
+  color: var(--cyan);
+  clip-path: inset(70% 0 10% 0);
+  animation: glitch-2 0.3s ease-in-out 2;
+}
+@keyframes glitch-1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -1px); }
+  60% { transform: translate(-2px, 3px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0); }
+}
+@keyframes glitch-2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(3px, -2px); }
+  40% { transform: translate(-3px, 1px); }
+  60% { transform: translate(2px, -3px); }
+  80% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* ===== CYBER BUTTON ===== */
+.cyber-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--cyan);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s var(--ease);
+  z-index: -1;
+}
+.cyber-btn:hover {
+  color: var(--bg);
+  box-shadow: var(--glow-cyan);
+}
+.cyber-btn:hover::before {
+  transform: scaleY(1);
+}
+.cyber-btn-magenta {
+  border-color: var(--magenta);
+  color: var(--magenta);
+}
+.cyber-btn-magenta::before { background: var(--magenta); }
+.cyber-btn-magenta:hover { color: var(--bg); box-shadow: var(--glow-magenta); }
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: all 0.5s var(--ease);
+}
+.navbar.scrolled {
+  background: rgba(10, 11, 14, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.08);
+  padding: 12px 0;
+}
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+.logo span { color: var(--cyan); text-shadow: 0 0 10px rgba(0, 240, 255, 0.5); }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.3s, text-shadow 0.3s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cyan);
+  transition: width 0.3s var(--ease);
+  box-shadow: 0 0 6px var(--cyan);
+}
+.nav-links a:hover { color: var(--cyan); text-shadow: 0 0 8px rgba(0, 240, 255, 0.4); }
+.nav-links a:hover::after { width: 100%; }
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.burger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s var(--ease);
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  overflow: hidden;
+  position: relative;
+}
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 28px;
+  opacity: 0;
+}
+.hero-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px var(--cyan); }
+  50% { opacity: 0.3; box-shadow: none; }
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.hero-title .line { display: block; }
+.hero-title .glitch-line {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--cyan);
+  text-stroke: 1px var(--cyan);
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+}
+.hero-title .name-glow {
+  background: linear-gradient(135deg, var(--cyan), var(--magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.2));
+}
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  font-family: var(--font-mono);
+  opacity: 0;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  opacity: 0;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 64px;
+  opacity: 0;
+}
+.stat {
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cyan);
+  display: block;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+.stat-label {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ===== ABOUT ===== */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+.about-text p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+.about-text strong { color: var(--cyan); }
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.about-tags span {
+  padding: 5px 14px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  transition: all 0.3s var(--ease);
+}
+.about-tags span:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 36px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+}
+.about-card-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.about-card-row:last-child { border: none; padding-bottom: 0; }
+.about-card-row .dot {
+  min-width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-top: 5px;
+  box-shadow: 0 0 8px currentColor;
+}
+.dot-cyan { background: var(--cyan); color: var(--cyan); }
+.dot-magenta { background: var(--magenta); color: var(--magenta); }
+.dot-green { background: var(--green); color: var(--green); }
+.about-card-row strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.about-card-row p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ===== SKILLS ===== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease);
+}
+.skill-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--cyan);
+  transition: height 0.6s var(--ease);
+  box-shadow: 0 0 10px var(--cyan);
+}
+.skill-card:hover::before { height: 100%; }
+.skill-card:hover { border-color: rgba(0, 240, 255, 0.2); }
+.skill-index {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: block;
+}
+.skill-card h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 10px;
+  letter-spacing: 0.05em;
+}
+.skill-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.skill-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.skill-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--cyan), var(--magenta));
+  border-radius: 2px;
+  transition: width 1.2s var(--ease);
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.2);
+}
+.skill-bar.in-view span { width: var(--w); }
+
+/* ===== PROJECTS ===== */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.project-row.reverse { direction: rtl; }
+.project-row.reverse > * { direction: ltr; }
+.project-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 240, 255, 0.2);
+  text-stroke: 1px rgba(0, 240, 255, 0.2);
+  line-height: 1;
+  display: block;
+  margin-bottom: 10px;
+}
+.project-info h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.project-info p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.project-tags span {
+  padding: 4px 12px;
+  background: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--magenta);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s var(--ease);
+}
+.project-link:hover {
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.4);
+  gap: 10px;
+}
+.project-visual {
+  height: 280px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.project-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 240, 255, 0.05);
+  pointer-events: none;
+}
+.visual-placeholder {
+  font-family: var(--font-mono);
+  font-size: 3rem;
+  color: rgba(0, 240, 255, 0.06);
+}
+
+/* ===== CONTACT ===== */
+.contact-inner {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-inner .section-tag { justify-content: center; }
+.contact-inner .section-tag::after { display: none; }
+.contact-text {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.contact-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+.footer-inner a { color: var(--text-muted); transition: color 0.3s; }
+.footer-inner a:hover { color: var(--cyan); }
+
+/* ===== REVEAL ===== */
+.reveal-up { opacity: 0; transform: translateY(36px); }
+.reveal-left { opacity: 0; transform: translateX(-40px); }
+.reveal-right { opacity: 0; transform: translateX(40px); }
+.reveal-scale { opacity: 0; transform: scale(0.92); }
+.clip-reveal { clip-path: inset(0 0 100% 0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 980px) {
+  .about-grid,
+  .project-row,
+  .project-row.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+  }
+  .project-visual { order: -1; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 28px; }
+}
+@media (max-width: 720px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  section { padding: 90px 0; }
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    flex-direction: column;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--border);
+    gap: 20px;
+    backdrop-filter: blur(20px);
+  }
+  .hero-stats {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .stat { display: flex; gap: 12px; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up, .reveal-left, .reveal-right, .reveal-scale { opacity: 1; transform: none; }
+  .clip-reveal { clip-path: none; }
+  .glitch-text::before,
+  .glitch-text::after { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="#hero" class="logo">CP<span>.</span>thinh</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">// Giới thiệu</a>
+      <a href="#skills">// Kỹ năng</a>
+      <a href="#projects">// Dự án</a>
+      <a href="#contact">// Liên hệ</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <canvas id="hero-canvas"></canvas>
+  <div class="container hero-inner">
+    <div class="hero-badge" id="heroBadge">
+      <span class="dot"></span>
+      ONLINE · Sẵn sàng làm việc
+    </div>
+    <h1 class="hero-title">
+      <span class="line glitch-line" data-text="XIN CHÀO,">XIN CHÀO,</span>
+      <span class="line name-glow">CAO PHÚC THỊNH</span>
+    </h1>
+    <p class="hero-subtitle" id="heroSub">
+      Web Developer từ Tiền Giang University — xây hệ thống backend chắc chắn,
+      tạo giao diện frontend chuyển động. <strong>#BuildTheFuture</strong>
+    </p>
+    <div class="hero-actions" id="heroActions">
+      <a href="#projects" class="cyber-btn">Xem dự án →</a>
+      <a href="#contact" class="cyber-btn cyber-btn-magenta">Liên hệ</a>
+    </div>
+    <div class="hero-stats" id="heroStats">
+      <div class="stat">
+        <span class="stat-number" data-count="21">0</span>
+        <span class="stat-label">Bảng dữ liệu</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="6">0</span>
+        <span class="stat-label">Vai trò user</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-count="3">0</span>
+        <span class="stat-label">Dự án GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <p class="section-tag">Giới thiệu</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>
+          <span class="glitch-text" data-text="TƯ DUY HỆ THỐNG">TƯ DUY HỆ THỐNG</span><br />
+          GIAO DIỆN CÓ CẢM XÚC
+        </h2>
+        <p>Mình là <strong>Thịnh</strong>, sinh viên năm 3 ngành Công nghệ thông tin tại Trường Đại học Tiền Giang. Mình tập trung vào hai mảng song song: xây dựng hệ thống backend chắc chắn với Laravel/MySQL, và tạo ra những giao diện frontend chuyển động, có cảm xúc bằng GSAP và Three.js.</p>
+        <p>Đồ án tốt nghiệp <strong>ZomZop</strong> — hệ thống đặt món ăn nhanh đa chi nhánh — là minh chứng cho cách mình tiếp cận vấn đề: chia nhỏ bài toán lớn (21 bảng dữ liệu, 6 vai trò, chấm công bằng nhận diện khuôn mặt, gợi ý món bằng AI) thành các phần có thể kiểm soát được.</p>
+        <div class="about-tags">
+          <span>Laravel</span><span>PHP</span><span>MySQL</span>
+          <span>Three.js</span><span>GSAP</span><span>Tailwind CSS</span>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-row">
+          <span class="dot dot-cyan"></span>
+          <div>
+            <strong>Hiện tại</strong>
+            <p>Hoàn thiện backend đồ án tốt nghiệp ZomZop</p>
+          </div>
+        </div>
+        <div class="about-card-row">
+          <span class="dot dot-magenta"></span>
+          <div>
+            <strong>Đam mê</strong>
+            <p>Cinematic UI, scroll animation, 3D trên web</p>
+          </div>
+        </div>
+        <div class="about-card-row">
+          <span class="dot dot-green"></span>
+          <div>
+            <strong>Đang học</strong>
+            <p>Hệ điều hành, AI tìm kiếm A*, phát triển Android</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="container">
+    <p class="section-tag">Kỹ năng</p>
+    <h2>CÔNG CỤ BIẾN Ý TƯỞNG THÀNH SẢN PHẨM</h2>
+    <div class="skills-grid" data-stagger>
+      <div class="skill-card reveal-scale">
+        <span class="skill-index">[01]</span>
+        <h3>FRONTEND</h3>
+        <p>HTML5, CSS3, JavaScript (ES6+), GSAP, Three.js, Tailwind CSS</p>
+        <div class="skill-bar"><span style="--w: 90%"></span></div>
+      </div>
+      <div class="skill-card reveal-scale">
+        <span class="skill-index">[02]</span>
+        <h3>BACKEND</h3>
+        <p>PHP 8.3, Laravel 13, MySQL, Laravel Reverb, REST API</p>
+        <div class="skill-bar"><span style="--w: 85%"></span></div>
+      </div>
+      <div class="skill-card reveal-scale">
+        <span class="skill-index">[03]</span>
+        <h3>AI & DEVICES</h3>
+        <p>Gemini API, face-api.js, nhận diện khuôn mặt thời gian thực</p>
+        <div class="skill-bar"><span style="--w: 75%"></span></div>
+      </div>
+      <div class="skill-card reveal-scale">
+        <span class="skill-index">[04]</span>
+        <h3>TOOLS</h3>
+        <p>Git/GitHub, PWA, Mermaid ERD, Figma cơ bản</p>
+        <div class="skill-bar"><span style="--w: 80%"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="container">
+    <p class="section-tag">Dự án</p>
+    <h2>NHỮNG SẢN PHẨM ĐÃ XÂY DỰNG</h2>
+    <div class="project-list" data-stagger>
+      <article class="project-row reveal-left">
+        <div class="project-info">
+          <span class="project-num clip-reveal">01</span>
+          <h3>ZomZop</h3>
+          <p>Hệ thống đặt món ăn nhanh đa chi nhánh — đồ án tốt nghiệp. Laravel 13, MySQL, Gemini AI gợi ý món, Laravel Reverb realtime, chấm công bằng nhận diện khuôn mặt, hỗ trợ PWA.</p>
+          <div class="project-tags">
+            <span>Laravel</span><span>MySQL</span><span>Gemini API</span><span>face-api.js</span>
+          </div>
+          <a href="https://github.com/Thjnn/ZomZop" target="_blank" rel="noopener" class="project-link">Xem trên GitHub →</a>
+        </div>
+        <div class="project-visual">
+          <span class="visual-placeholder">Z</span>
+        </div>
+      </article>
+      <article class="project-row reverse reveal-right">
+        <div class="project-info">
+          <span class="project-num clip-reveal">02</span>
+          <h3>Văn Phòng UniStyle</h3>
+          <p>Hệ thống quản trị bán hàng cho cửa hàng thời trang — quản lý đơn hàng, kho hàng, khuyến mãi và banner quảng cáo trên một dashboard admin đầy đủ, thiết kế CSDL với ERD 18 bảng.</p>
+          <div class="project-tags">
+            <span>PHP</span><span>MySQL</span><span>Admin Dashboard</span>
+          </div>
+          <a href="https://github.com/Thjnn/UniStyle" target="_blank" rel="noopener" class="project-link">Xem trên GitHub →</a>
+        </div>
+        <div class="project-visual">
+          <span class="visual-placeholder">U</span>
+        </div>
+      </article>
+      <article class="project-row reveal-left">
+        <div class="project-info">
+          <span class="project-num clip-reveal">03</span>
+          <h3>Petio</h3>
+          <p>Website cửa hàng & dịch vụ chăm sóc thú cưng — đa trang gồm shop, đặt lịch spa, blog, đăng nhập/đăng ký và trang liên hệ, xây dựng hoàn toàn bằng HTML/CSS/JS thuần.</p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <a href="https://github.com/Thjnn/Petio" target="_blank" rel="noopener" class="project-link">Xem trên GitHub →</a>
+        </div>
+        <div class="project-visual">
+          <span class="visual-placeholder">P</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+    <p class="section-tag">Liên hệ</p>
+    <h2>CÙNG XÂY DỰNG ĐIỀU GÌ ĐÓ THẬT FUTURE.</h2>
+    <p class="contact-text">Mình luôn sẵn lòng trao đổi về cơ hội thực tập, dự án freelance hoặc đơn giản là nói về frontend animation. Hãy gửi tín hiệu — mình sẽ phản hồi ngay.</p>
+    <div class="contact-actions" data-stagger>
+      <a href="mailto:thinh.cao@example.com" class="cyber-btn reveal-up">[ GỬI EMAIL ]</a>
+      <a href="https://github.com/Thjnn" target="_blank" rel="noopener" class="cyber-btn cyber-btn-magenta reveal-up">[ GITHUB ]</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 CAO PHÚC THỊNH</span>
+    <a href="#hero">[ VỀ ĐẦU ] ↑</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* =========================================================
+   CYBERPUNK PORTFOLIO — main
+   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- Navbar ---------- */
+  const navbar = document.getElementById("navbar");
+  const burger = document.getElementById("burger");
+  const navLinks = document.getElementById("navLinks");
+
+  window.addEventListener("scroll", () => {
+    navbar.classList.toggle("scrolled", window.scrollY > 20);
+  }, { passive: true });
+
+  burger.addEventListener("click", () => navLinks.classList.toggle("open"));
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
+  });
+
+  /* ---------- Smooth anchor ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const id = link.getAttribute("href");
+      if (id.length > 1 && document.querySelector(id)) {
+        e.preventDefault();
+        document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  /* ---------- Three.js cyber scene ---------- */
+  const canvas = document.getElementById("hero-canvas");
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.z = 5;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+  const geometry = new THREE.TorusKnotGeometry(1.2, 0.35, 128, 16);
+  const material = new THREE.MeshBasicMaterial({
+    color: 0x00f0ff,
+    wireframe: true,
+    transparent: true,
+    opacity: 0.15,
+  });
+  const knot = new THREE.Mesh(geometry, material);
+  scene.add(knot);
+
+  const particles = new THREE.BufferGeometry();
+  const particleCount = 800;
+  const pos = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount * 3; i++) {
+    pos[i] = (Math.random() - 0.5) * 20;
+  }
+  particles.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  const particleMat = new THREE.PointsMaterial({
+    color: 0x00f0ff,
+    size: 0.03,
+    transparent: true,
+    opacity: 0.4,
+  });
+  const particleSystem = new THREE.Points(particles, particleMat);
+  scene.add(particleSystem);
+
+  let mouseX = 0, mouseY = 0;
+  document.addEventListener("mousemove", e => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+  function animateScene() {
+    requestAnimationFrame(animateScene);
+    knot.rotation.x += 0.003;
+    knot.rotation.y += 0.005;
+    knot.rotation.x += (mouseY * 0.05 - knot.rotation.x) * 0.02;
+    knot.rotation.y += (mouseX * 0.05 - knot.rotation.y) * 0.02;
+    particleSystem.rotation.y += 0.0003;
+    renderer.render(scene, camera);
+  }
+  animateScene();
+
+  window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+
+  /* ---------- Hero entrance ---------- */
+  const heroTl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.9 } });
+  heroTl
+    .to("#heroBadge", { opacity: 1, y: 0, duration: 0.6 })
+    .to(".hero-title .line", { opacity: 1, y: 0, stagger: 0.15, duration: 0.8 }, "-=0.3")
+    .to("#heroSub", { opacity: 1, y: 0 }, "-=0.5")
+    .to("#heroActions", { opacity: 1, y: 0 }, "-=0.5")
+    .to("#heroStats", { opacity: 1, y: 0 }, "-=0.5");
+
+  /* ---------- Scroll reveal ---------- */
+  const REVEAL_TYPES = {
+    "reveal-up":    { opacity: 1, y: 0 },
+    "reveal-left":  { opacity: 1, x: 0 },
+    "reveal-right": { opacity: 1, x: 0 },
+    "reveal-scale": { opacity: 1, scale: 1 },
+    "clip-reveal":  { clipPath: "inset(0 0 0% 0)" },
+  };
+
+  gsap.set(".reveal-up",    { opacity: 0, y: 36 });
+  gsap.set(".reveal-left",  { opacity: 0, x: -40 });
+  gsap.set(".reveal-right", { opacity: 0, x: 40 });
+  gsap.set(".reveal-scale", { opacity: 0, scale: 0.92 });
+  gsap.set(".clip-reveal",  { clipPath: "inset(0 0 100% 0)" });
+
+  gsap.set(".hero-title .line", { opacity: 0, y: 25 });
+  gsap.set("#heroBadge", { opacity: 0, y: 15 });
+  gsap.set("#heroSub", { opacity: 0, y: 20 });
+  gsap.set("#heroActions", { opacity: 0, y: 20 });
+  gsap.set("#heroStats", { opacity: 0, y: 20 });
+
+  Object.entries(REVEAL_TYPES).forEach(([className, vars]) => {
+    const els = gsap.utils.toArray("." + className).filter(el => !el.closest(".hero"));
+    if (!els.length) return;
+
+    const groups = new Map();
+    els.forEach(el => {
+      const parent = el.closest("[data-stagger]") || el.parentElement;
+      if (!groups.has(parent)) groups.set(parent, []);
+      groups.get(parent).push(el);
+    });
+
+    groups.forEach((groupEls, triggerParent) => {
+      const delay = parseFloat(triggerParent.dataset.staggerDelay) || 0.08;
+      if (groupEls.length === 1) {
+        gsap.to(groupEls[0], {
+          ...vars,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: groupEls[0],
+            start: "top 88%",
+            end: "bottom 10%",
+            toggleActions: "play reverse play reverse",
+          },
+        });
+      } else {
+        gsap.to(groupEls, {
+          ...vars,
+          duration: 0.9,
+          stagger: delay,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: triggerParent,
+            start: "top 88%",
+            end: "bottom 10%",
+            toggleActions: "play reverse play reverse",
+          },
+        });
+      }
+    });
+  });
+
+  /* ---------- Stat counters ---------- */
+  document.querySelectorAll(".stat-number").forEach(el => {
+    const target = parseInt(el.dataset.count, 10);
+    ScrollTrigger.create({
+      trigger: el,
+      start: "top 90%",
+      once: true,
+      onEnter: () => {
+        gsap.to(el, {
+          innerText: target,
+          duration: 1.6,
+          ease: "power1.out",
+          snap: { innerText: 1 },
+          onUpdate() {
+            el.innerText = Math.round(this.targets()[0].innerText);
+          },
+        });
+      },
+    });
+  });
+
+  /* ---------- Skill bars ---------- */
+  document.querySelectorAll(".skill-card").forEach(card => {
+    ScrollTrigger.create({
+      trigger: card,
+      start: "top 85%",
+      once: true,
+      onEnter: () => card.querySelector(".skill-bar span").classList.add("in-view"),
+    });
+  });
+});
+</script>
+</body>
+</html>
