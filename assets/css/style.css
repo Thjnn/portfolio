@@ -1016,3 +1016,110 @@ section {
     scroll-behavior: auto;
   }
 }
+
+/* =========================================================
+   ENHANCEMENTS — WebGL hero, split title, cursor, tilt, glare
+   ========================================================= */
+
+/* ===== Hero WebGL particle canvas ===== */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.hero .grid-pattern {
+  z-index: 1;
+}
+
+/* ===== Split hero title chars ===== */
+.hero-title .char {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Animated gradient shimmer on the name (gradient stays intact through clip reveal) */
+.name-line {
+  background-size: 220% auto;
+  animation: nameShimmer 7s ease-in-out infinite alternate;
+}
+@keyframes nameShimmer {
+  from {
+    background-position: 0% center;
+  }
+  to {
+    background-position: 120% center;
+  }
+}
+
+/* ===== Custom cursor ===== */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  will-change: transform;
+}
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--blue-600);
+}
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(37, 99, 235, 0.5);
+  transition:
+    width 0.28s var(--ease),
+    height 0.28s var(--ease),
+    background 0.28s var(--ease),
+    border-color 0.28s var(--ease);
+}
+.cursor-ring.active {
+  width: 56px;
+  height: 56px;
+  background: rgba(37, 99, 235, 0.08);
+  border-color: var(--blue-500);
+}
+body.custom-cursor,
+body.custom-cursor * {
+  cursor: none !important;
+}
+
+/* ===== 3D tilt on project visuals ===== */
+.visual-frame {
+  will-change: transform;
+}
+
+/* ===== Cursor-following glare on skill cards ===== */
+.skill-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(59, 122, 254, 0.16),
+    transparent 42%
+  );
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  pointer-events: none;
+}
+.skill-card:hover::after {
+  opacity: 1;
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}

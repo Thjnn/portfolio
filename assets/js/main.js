@@ -56,11 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(card, { rotation: rot, y: 46, scale: 0.92, opacity: 0 });
   });
 
+  // Tách dòng đầu tiên của tiêu đề thành từng ký tự để reveal "mask rise" so le
+  function splitChars(el) {
+    const text = el.textContent;
+    el.textContent = "";
+    el.style.overflow = "hidden";
+    el.style.display = "block";
+    const chars = [];
+    for (const ch of text) {
+      const span = document.createElement("span");
+      span.className = "char";
+      span.textContent = ch === " " ? String.fromCharCode(160) : ch;
+      el.appendChild(span);
+      chars.push(span);
+    }
+    return chars;
+  }
+
+  const firstLine = document.querySelector(".hero-title .line:not(.name-line)");
+  const nameLine = document.querySelector(".name-line");
+  const firstChars = firstLine ? splitChars(firstLine) : [];
+
+  // Trạng thái ẩn ban đầu (ghi đè CSS)
+  if (firstLine) gsap.set(firstLine, { opacity: 1 });
+  gsap.set(firstChars, { yPercent: 120, opacity: 0 });
+  if (nameLine)
+    gsap.set(nameLine, { opacity: 1, clipPath: "inset(0 0 110% 0)" });
+
   gsap
     .timeline({ defaults: { ease: "power3.out", duration: 0.9 } })
     .to(".eyebrow", { opacity: 1, y: 0 })
-    .to(".hero-title .line", { opacity: 1, y: 0, stagger: 0.12 }, "-=0.5")
-    .to(".hero-subtitle", { opacity: 1, y: 0 }, "-=0.5")
+    .to(
+      firstChars,
+      { yPercent: 0, opacity: 1, stagger: 0.028, duration: 0.7 },
+      "-=0.4",
+    )
+    .to(
+      nameLine,
+      { clipPath: "inset(0 0 0% 0)", duration: 0.95, ease: "power4.out" },
+      "-=0.45",
+    )
+    .to(".hero-subtitle", { opacity: 1, y: 0 }, "-=0.55")
     .to(".hero-actions", { opacity: 1, y: 0 }, "-=0.5")
     .to(".hero-stats", { opacity: 1, y: 0 }, "-=0.5")
     .to(
