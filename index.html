@@ -6,8 +6,26 @@
     <title>Cao Phúc Thịnh — Web Developer</title>
     <meta
       name="description"
-      content="Portfolio of Cao Phuc Thinh, frontend & fullstack web developer."
+      content="Portfolio of Cao Phuc Thinh — frontend & fullstack web developer. Laravel, MySQL, GSAP, cinematic UI. Open to internship / fresher roles."
     />
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cao Phúc Thịnh — Web Developer" />
+    <meta
+      property="og:description"
+      content="Sinh viên năm 3 ngành Phát triển Web — Laravel, MySQL, GSAP, cinematic UI. Đang tìm vị trí Thực tập / Fresher."
+    />
+    <meta property="og:image" content="assets/images/og-image.jpg" />
+    <meta property="og:url" content="https://thjnn.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Cao Phúc Thịnh — Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Frontend & fullstack web developer — Laravel, MySQL, GSAP. Open to internship / fresher roles."
+    />
+    <meta name="twitter:image" content="assets/images/og-image.jpg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,31 +42,52 @@
       <div class="container navbar-inner">
         <a href="#home" class="logo">CP<span>.</span>Thinh</a>
         <nav class="nav-links" id="navLinks">
-          <a href="#about" data-text="Giới thiệu">Giới thiệu</a>
-          <a href="#skills" data-text="Kỹ năng">Kỹ năng</a>
-          <a href="#projects" data-text="Dự án">Dự án</a>
-          <a href="#contact" data-text="Liên hệ">Liên hệ</a>
+          <a href="#about" data-i18n="nav.about">Giới thiệu</a>
+          <a href="#timeline" data-i18n="nav.timeline">Hành trình</a>
+          <a href="#skills" data-i18n="nav.skills">Kỹ năng</a>
+          <a href="#projects" data-i18n="nav.projects">Dự án</a>
+          <a href="#contact" data-i18n="nav.contact">Liên hệ</a>
         </nav>
-        <a
-          href="https://github.com/Thjnn"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-small nav-cta"
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 256 250"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+        <div class="nav-actions">
+          <button
+            class="lang-toggle"
+            id="langToggle"
+            aria-label="Chuyển ngôn ngữ"
           >
-            <path
-              fill="currentColor"
-              d="M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46c6.397 1.185 8.746-2.777 8.746-6.158c0-3.052-.12-13.135-.174-23.83c-35.61 7.742-43.124-15.103-43.124-15.103c-5.823-14.795-14.213-18.73-14.213-18.73c-11.613-7.944.876-7.78.876-7.78c12.853.902 19.621 13.19 19.621 13.19c11.417 19.568 29.945 13.911 37.249 10.64c1.149-8.272 4.466-13.92 8.127-17.116c-28.431-3.236-58.318-14.212-58.318-63.258c0-13.975 5-25.394 13.188-34.358c-1.329-3.224-5.71-16.242 1.24-33.874c0 0 10.749-3.44 35.21 13.121c10.21-2.836 21.16-4.258 32.038-4.307c10.878.049 21.837 1.47 32.066 4.307c24.431-16.56 35.165-13.12 35.165-13.12c6.967 17.63 2.584 30.65 1.255 33.873c8.207 8.964 13.173 20.383 13.173 34.358c0 49.163-29.944 59.988-58.447 63.157c4.591 3.972 8.682 11.762 8.682 23.704c0 17.126-.148 30.91-.148 35.126c0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002C256 57.307 198.691 0 128.001 0m-80.06 182.34c-.282.636-1.283.827-2.194.39c-.929-.417-1.45-1.284-1.15-1.922c.276-.655 1.279-.838 2.205-.399c.93.418 1.46 1.293 1.139 1.931m6.296 5.618c-.61.566-1.804.303-2.614-.591c-.837-.892-.994-2.086-.375-2.66c.63-.566 1.787-.301 2.626.591c.838.903 1 2.088.363 2.66m4.32 7.188c-.785.545-2.067.034-2.86-1.104c-.784-1.138-.784-2.503.017-3.05c.795-.547 2.058-.055 2.861 1.075c.782 1.157.782 2.522-.019 3.08m7.304 8.325c-.701.774-2.196.566-3.29-.49c-1.119-1.032-1.43-2.496-.726-3.27c.71-.776 2.213-.558 3.315.49c1.11 1.03 1.45 2.505.701 3.27m9.442 2.81c-.31 1.003-1.75 1.459-3.199 1.033c-1.448-.439-2.395-1.613-2.103-2.626c.301-1.01 1.747-1.484 3.207-1.028c1.446.436 2.396 1.602 2.095 2.622m10.744 1.193c.036 1.055-1.193 1.93-2.715 1.95c-1.53.034-2.769-.82-2.786-1.86c0-1.065 1.202-1.932 2.733-1.958c1.522-.03 2.768.818 2.768 1.868m10.555-.405c.182 1.03-.875 2.088-2.387 2.37c-1.485.271-2.861-.365-3.05-1.386c-.184-1.056.893-2.114 2.376-2.387c1.514-.263 2.868.356 3.061 1.403"
-            />
-          </svg>
-          GitHub
-        </a>
+            <span class="lang-current">VI</span>
+            <span class="lang-sep">/</span>
+            <span class="lang-other">EN</span>
+          </button>
+          <a
+            href="cv.html"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-small btn-primary nav-cv"
+            data-i18n="nav.cv"
+          >
+            Tải CV
+          </a>
+          <a
+            href="https://github.com/Thjnn"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-small nav-cta"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 256 250"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="currentColor"
+                d="M128.001 0C57.317 0 0 57.307 0 128.001c0 56.554 36.676 104.535 87.535 121.46c6.397 1.185 8.746-2.777 8.746-6.158c0-3.052-.12-13.135-.174-23.83c-35.61 7.742-43.124-15.103-43.124-15.103c-5.823-14.795-14.213-18.73-14.213-18.73c-11.613-7.944.876-7.78.876-7.78c12.853.902 19.621 13.19 19.621 13.19c11.417 19.568 29.945 13.911 37.249 10.64c1.149-8.272 4.466-13.92 8.127-17.116c-28.431-3.236-58.318-14.212-58.318-63.258c0-13.975 5-25.394 13.188-34.358c-1.329-3.224-5.71-16.242 1.24-33.874c0 0 10.749-3.44 35.21 13.121c10.21-2.836 21.16-4.258 32.038-4.307c10.878.049 21.837 1.47 32.066 4.307c24.431-16.56 35.165-13.12 35.165-13.12c6.967 17.63 2.584 30.65 1.255 33.873c8.207 8.964 13.173 20.383 13.173 34.358c0 49.163-29.944 59.988-58.447 63.157c4.591 3.972 8.682 11.762 8.682 23.704c0 17.126-.148 30.91-.148 35.126c0 3.407 2.304 7.398 8.792 6.14C219.37 232.5 256 184.537 256 128.002C256 57.307 198.691 0 128.001 0m-80.06 182.34c-.282.636-1.283.827-2.194.39c-.929-.417-1.45-1.284-1.15-1.922c.276-.655 1.279-.838 2.205-.399c.93.418 1.46 1.293 1.139 1.931m6.296 5.618c-.61.566-1.804.303-2.614-.591c-.837-.892-.994-2.086-.375-2.66c.63-.566 1.787-.301 2.626.591c.838.903 1 2.088.363 2.66m4.32 7.188c-.785.545-2.067.034-2.86-1.104c-.784-1.138-.784-2.503.017-3.05c.795-.547 2.058-.055 2.861 1.075c.782 1.157.782 2.522-.019 3.08m7.304 8.325c-.701.774-2.196.566-3.29-.49c-1.119-1.032-1.43-2.496-.726-3.27c.71-.776 2.213-.558 3.315.49c1.11 1.03 1.45 2.505.701 3.27m9.442 2.81c-.31 1.003-1.75 1.459-3.199 1.033c-1.448-.439-2.395-1.613-2.103-2.626c.301-1.01 1.747-1.484 3.207-1.028c1.446.436 2.396 1.602 2.095 2.622m10.744 1.193c.036 1.055-1.193 1.93-2.715 1.95c-1.53.034-2.769-.82-2.786-1.86c0-1.065 1.202-1.932 2.733-1.958c1.522-.03 2.768.818 2.768 1.868m10.555-.405c.182 1.03-.875 2.088-2.387 2.37c-1.485.271-2.861-.365-3.05-1.386c-.184-1.056.893-2.114 2.376-2.387c1.514-.263 2.868.356 3.061 1.403"
+              />
+            </svg>
+            GitHub
+          </a>
+        </div>
         <button class="burger" id="burger" aria-label="Mở menu">
           <span></span><span></span><span></span>
         </button>
@@ -65,42 +104,54 @@
       </div>
       <div class="container hero-inner">
         <div class="hero-copy">
-          <p class="eyebrow">Web Developer · Tiền Giang University</p>
+          <p class="eyebrow" data-i18n="hero.eyebrow">
+            Web Developer · Tiền Giang University
+          </p>
+          <span class="status-pill" data-i18n="hero.status">
+            <span class="status-dot"></span>
+            Đang tìm vị trí Thực tập / Fresher — sẵn sàng bắt đầu
+          </span>
           <h1 class="hero-title">
-            <span class="line">Xin chào, mình là</span>
+            <span class="line" data-i18n="hero.greeting">Xin chào, mình là</span>
             <span class="line name-line">Cao Phúc Thịnh</span>
           </h1>
-          <p class="hero-subtitle">
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
             Sinh viên năm 3 ngành Phát triển Web — xây dựng những sản phẩm
             <strong> sạch, nhanh và có chiều sâu kỹ thuật</strong>, từ hệ thống
             backend phức tạp đến giao diện chuyển động ấn tượng.
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary"
-              >Xem dự án <span class="arrow">→</span></a
+              ><span data-i18n="hero.viewProjects">Xem dự án</span>
+              <span class="arrow">→</span></a
             >
             <a
-              href="https://github.com/Thjnn"
+              href="cv.html"
               target="_blank"
               rel="noopener"
               class="btn btn-ghost"
-              >GitHub</a
+              data-i18n="hero.cv"
+              >Tải CV</a
             >
           </div>
           <div class="hero-stats">
             <div class="stat">
               <span class="stat-number" data-count="2">0</span>
-              <span class="stat-label">Tích hợp AI trong ZomZop</span>
+              <span class="stat-label" data-i18n="hero.stat1"
+                >Tích hợp AI trong ZomZop</span
+              >
             </div>
             <div class="stat">
               <span class="stat-number" data-count="3">0</span>
-              <span class="stat-label"
+              <span class="stat-label" data-i18n="hero.stat2"
                 >Năm kinh nghiệm dùng Git &amp; GitHub</span
               >
             </div>
             <div class="stat">
               <span class="stat-number" data-count="5">0</span>
-              <span class="stat-label">Dự án trên GitHub</span>
+              <span class="stat-label" data-i18n="hero.stat3"
+                >Dự án trên GitHub</span
+              >
             </div>
           </div>
         </div>
@@ -146,32 +197,77 @@
 
           <div class="float-badge" data-rot="-4" data-depth="1.4">
             <span class="badge-dot"></span>
-            <code>21 bảng · Gemini AI · Realtime</code>
+            <code data-i18n="hero.badge">21 bảng · Gemini AI · Realtime</code>
           </div>
         </div>
       </div>
-      <a href="#about" class="scroll-cue" aria-label="Cuộn xuống">
+      <a href="#kpi" class="scroll-cue" aria-label="Cuộn xuống">
         <span></span>
       </a>
+    </section>
+
+    <!-- KPI STRIP -->
+    <section class="kpi" id="kpi">
+      <div class="container">
+        <p class="kpi-heading reveal-up" data-i18n="kpi.heading">
+          Đồ án tốt nghiệp <strong>ZomZop</strong> qua những con số
+        </p>
+        <div class="kpi-grid" data-stagger>
+          <div class="kpi-item reveal-up">
+            <span class="kpi-number stat-number" data-count="21">0</span>
+            <span class="kpi-label" data-i18n="kpi.l1">Bảng dữ liệu</span>
+          </div>
+          <div class="kpi-item reveal-up">
+            <span class="kpi-number stat-number" data-count="6">0</span>
+            <span class="kpi-label" data-i18n="kpi.l2">Vai trò phân quyền</span>
+          </div>
+          <div class="kpi-item reveal-up">
+            <span class="kpi-number stat-number" data-count="2">0</span>
+            <span class="kpi-label" data-i18n="kpi.l3"
+              >Tính năng AI (gợi ý món &amp; nhận diện khuôn mặt)</span
+            >
+          </div>
+          <div class="kpi-item reveal-up">
+            <span class="kpi-number kpi-text">Realtime</span>
+            <span class="kpi-label" data-i18n="kpi.l4"
+              >Laravel Reverb &amp; hỗ trợ PWA</span
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ABOUT -->
     <section class="about" id="about">
       <div class="container">
-        <p class="section-tag reveal-up">01 — Giới thiệu</p>
+        <p class="section-tag reveal-up" data-i18n="about.tag">
+          01 — Giới thiệu
+        </p>
         <div class="about-grid" data-stagger>
           <div class="about-text">
-            <h2 class="reveal-up">
+            <div class="about-intro reveal-up">
+              <div class="avatar" aria-hidden="true">
+                <!-- Thay bằng ảnh thật: đặt <img src="assets/images/avatar.jpg" alt="Cao Phúc Thịnh" /> -->
+                <span>CPT</span>
+              </div>
+              <div class="about-intro-meta">
+                <strong>Cao Phúc Thịnh</strong>
+                <span data-i18n="about.role"
+                  >Web Developer · Tiền Giang, Việt Nam</span
+                >
+              </div>
+            </div>
+            <h2 class="reveal-up" data-i18n="about.h2">
               Kết hợp tư duy hệ thống với<br />
               con mắt thẩm mỹ giao diện.
             </h2>
-            <p class="reveal-up">
+            <p class="reveal-up" data-i18n="about.p1">
               Mình là Thịnh, sinh viên năm 3 ngành Công nghệ thông tin tại
               Trường Đại học Tiền Giang. Mình tập trung vào hai mảng song song:
               xây dựng hệ thống backend chắc chắn với Laravel/MySQL, và tạo ra
               những giao diện frontend chuyển động, có cảm xúc bằng GSAP
             </p>
-            <p class="reveal-up">
+            <p class="reveal-up" data-i18n="about.p2">
               Đồ án tốt nghiệp <strong>ZomZop</strong> — hệ thống đặt món ăn
               nhanh đa chi nhánh — là minh chứng cho cách mình tiếp cận vấn đề:
               chia nhỏ bài toán lớn (21 bảng dữ liệu, 6 vai trò, chấm công bằng
@@ -188,22 +284,28 @@
             <div class="about-card-row">
               <span class="dot dot-blue"></span>
               <div>
-                <strong>Hiện tại</strong>
-                <p>Hoàn thiện backend đồ án tốt nghiệp ZomZop</p>
+                <strong data-i18n="about.now.t">Hiện tại</strong>
+                <p data-i18n="about.now.d">
+                  Hoàn thiện backend đồ án tốt nghiệp ZomZop
+                </p>
               </div>
             </div>
             <div class="about-card-row">
               <span class="dot dot-cyan"></span>
               <div>
-                <strong>Đam mê</strong>
-                <p>Cinematic UI, scroll animation, 3D trên web</p>
+                <strong data-i18n="about.pass.t">Đam mê</strong>
+                <p data-i18n="about.pass.d">
+                  Cinematic UI, scroll animation, 3D trên web
+                </p>
               </div>
             </div>
             <div class="about-card-row">
               <span class="dot dot-navy"></span>
               <div>
-                <strong>Đang học</strong>
-                <p>Hệ điều hành, AI tìm kiếm A*, phát triển Android</p>
+                <strong data-i18n="about.learn.t">Đang học</strong>
+                <p data-i18n="about.learn.d">
+                  Hệ điều hành, AI tìm kiếm A*, phát triển Android
+                </p>
               </div>
             </div>
           </div>
@@ -211,11 +313,80 @@
       </div>
     </section>
 
+    <!-- TIMELINE -->
+    <section class="timeline" id="timeline">
+      <div class="container">
+        <p class="section-tag reveal-up" data-i18n="timeline.tag">
+          02 — Hành trình
+        </p>
+        <h2 class="reveal-up" data-i18n="timeline.h2">
+          Học vấn &amp; kinh nghiệm.
+        </h2>
+
+        <div class="timeline-track">
+          <div class="timeline-line"></div>
+
+          <div class="tl-item reveal-left">
+            <span class="tl-dot"></span>
+            <span class="tl-date">2023</span>
+            <h3 data-i18n="tl.e1.t">Đại học Tiền Giang — Công nghệ thông tin</h3>
+            <p data-i18n="tl.e1.d">
+              Bắt đầu chương trình cử nhân CNTT, tập trung nền tảng lập trình,
+              cơ sở dữ liệu và phát triển web.
+            </p>
+          </div>
+
+          <div class="tl-item reveal-right">
+            <span class="tl-dot"></span>
+            <span class="tl-date">2024</span>
+            <h3 data-i18n="tl.e2.t">Petio — Website chăm sóc thú cưng</h3>
+            <p data-i18n="tl.e2.d">
+              Dự án đa trang bằng HTML/CSS/JS thuần: shop, đặt lịch spa, blog,
+              đăng nhập. Rèn luyện nền tảng frontend.
+            </p>
+          </div>
+
+          <div class="tl-item reveal-left">
+            <span class="tl-dot"></span>
+            <span class="tl-date">2025</span>
+            <h3 data-i18n="tl.e3.t">UniStyle — Hệ thống quản trị bán hàng</h3>
+            <p data-i18n="tl.e3.d">
+              Xây dựng dashboard admin đầy đủ với PHP/MySQL, thiết kế CSDL 18
+              bảng: đơn hàng, kho, khuyến mãi, banner.
+            </p>
+          </div>
+
+          <div class="tl-item reveal-right">
+            <span class="tl-dot"></span>
+            <span class="tl-date">2026</span>
+            <h3 data-i18n="tl.e4.t">ZomZop — Đồ án tốt nghiệp</h3>
+            <p data-i18n="tl.e4.d">
+              Hệ thống đặt món đa chi nhánh với Laravel 13, Gemini AI, Laravel
+              Reverb realtime, chấm công bằng nhận diện khuôn mặt, PWA.
+            </p>
+          </div>
+
+          <div class="tl-item reveal-left tl-future">
+            <span class="tl-dot"></span>
+            <span class="tl-date">2027 <em data-i18n="tl.expected">(dự kiến)</em></span>
+            <h3 data-i18n="tl.e5.t">Tốt nghiệp &amp; đi làm</h3>
+            <p data-i18n="tl.e5.d">
+              Sẵn sàng cho vị trí Thực tập / Fresher Web Developer, mong muốn
+              học hỏi trong môi trường thực tế.
+            </p>
+          </div>
+        </div>
+        <p class="tl-note" data-i18n="tl.note">
+          * Các mốc thời gian mang tính minh hoạ — chỉnh lại cho đúng nhé.
+        </p>
+      </div>
+    </section>
+
     <!-- SKILLS -->
     <section class="skills" id="skills">
       <div class="container">
-        <p class="section-tag reveal-up">02 — Kỹ năng</p>
-        <h2 class="reveal-up">
+        <p class="section-tag reveal-up" data-i18n="skills.tag">03 — Kỹ năng</p>
+        <h2 class="reveal-up" data-i18n="skills.h2">
           Công cụ mình dùng để biến ý tưởng thành sản phẩm.
         </h2>
 
@@ -234,20 +405,22 @@
           </div>
           <div class="skill-card reveal-scale">
             <span class="skill-index">03</span>
-            <h3>Tích hợp AI &amp; thiết bị</h3>
-            <p>Gemini API, face-api.js, nhận diện khuôn mặt thời gian thực</p>
+            <h3 data-i18n="skill3.h">Tích hợp AI &amp; thiết bị</h3>
+            <p data-i18n="skill3.p">
+              Gemini API, face-api.js, nhận diện khuôn mặt thời gian thực
+            </p>
             <div class="skill-bar"><span style="--w: 75%"></span></div>
           </div>
           <div class="skill-card reveal-scale">
             <span class="skill-index">04</span>
-            <h3>Công cụ &amp; quy trình</h3>
-            <p>Git/GitHub, PWA, Mermaid ERD, Figma cơ bản</p>
+            <h3 data-i18n="skill4.h">Công cụ &amp; quy trình</h3>
+            <p data-i18n="skill4.p">Git/GitHub, PWA, Mermaid ERD, Figma cơ bản</p>
             <div class="skill-bar"><span style="--w: 80%"></span></div>
           </div>
           <div class="skill-card reveal-scale">
             <span class="skill-index">05</span>
-            <h3>Lập trình cùng AI</h3>
-            <p>
+            <h3 data-i18n="skill5.h">Lập trình cùng AI</h3>
+            <p data-i18n="skill5.p">
               Dùng Claude &amp; AI coding assistant để tăng tốc phát triển,
               debug và học công nghệ mới hiệu quả
             </p>
@@ -260,15 +433,17 @@
     <!-- PROJECTS -->
     <section class="projects" id="projects">
       <div class="container">
-        <p class="section-tag reveal-up">03 — Dự án</p>
-        <h2 class="reveal-up">Một vài dự án mình đã xây dựng.</h2>
+        <p class="section-tag reveal-up" data-i18n="projects.tag">04 — Dự án</p>
+        <h2 class="reveal-up" data-i18n="projects.h2">
+          Một vài dự án mình đã xây dựng.
+        </h2>
 
         <div class="project-list" data-stagger>
           <article class="project-row reveal-left">
             <div class="project-info">
               <span class="project-num clip-reveal">01</span>
               <h3>ZomZop</h3>
-              <p>
+              <p data-i18n="proj1.p">
                 Hệ thống đặt món ăn nhanh đa chi nhánh — đồ án tốt nghiệp.
                 Laravel 13, MySQL, Gemini AI gợi ý món, Laravel Reverb realtime,
                 chấm công bằng nhận diện khuôn mặt, hỗ trợ PWA.
@@ -277,14 +452,26 @@
                 <span>Laravel</span><span>MySQL</span><span>Gemini API</span
                 ><span>face-api.js</span>
               </div>
-              <a
-                href="https://github.com/Thjnn/ZomZop"
-                target="_blank"
-                rel="noopener"
-                class="project-link"
-              >
-                Xem trên GitHub <span class="arrow">→</span>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Thjnn/ZomZop"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                >
+                  <span data-i18n="proj.github">Xem trên GitHub</span>
+                  <span class="arrow">→</span>
+                </a>
+                <a href="#case-study" class="project-link project-link-alt">
+                  <span data-i18n="proj.case">Xem case study</span>
+                  <span class="arrow">→</span>
+                </a>
+                <!-- Điền link demo vào href để hiện nút: -->
+                <a href="#" class="project-link project-demo" data-demo>
+                  <span data-i18n="proj.demo">Live demo</span>
+                  <span class="arrow">↗</span>
+                </a>
+              </div>
             </div>
             <div class="project-visual">
               <div class="visual-frame zomzop-visual">
@@ -310,7 +497,7 @@
             <div class="project-info">
               <span class="project-num clip-reveal">02</span>
               <h3>Văn Phòng UniStyle</h3>
-              <p>
+              <p data-i18n="proj2.p">
                 Hệ thống quản trị bán hàng và website cho cửa hàng văn phòng
                 phẩm, thời trang — quản lý đơn hàng, kho hàng, khuyến mãi và
                 banner quảng cáo trên một dashboard admin đầy đủ, thiết kế CSDL
@@ -319,14 +506,21 @@
               <div class="project-tags">
                 <span>PHP</span><span>MySQL</span><span>Admin Dashboard</span>
               </div>
-              <a
-                href="https://github.com/Thjnn/UniStyle"
-                target="_blank"
-                rel="noopener"
-                class="project-link"
-              >
-                Xem trên GitHub <span class="arrow">→</span>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Thjnn/UniStyle"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                >
+                  <span data-i18n="proj.github">Xem trên GitHub</span>
+                  <span class="arrow">→</span>
+                </a>
+                <a href="#" class="project-link project-demo" data-demo>
+                  <span data-i18n="proj.demo">Live demo</span>
+                  <span class="arrow">↗</span>
+                </a>
+              </div>
             </div>
             <div class="project-visual">
               <div class="visual-frame unistyle-visual">
@@ -368,7 +562,7 @@
             <div class="project-info">
               <span class="project-num clip-reveal">03</span>
               <h3>Petio</h3>
-              <p>
+              <p data-i18n="proj3.p">
                 Website cửa hàng &amp; dịch vụ chăm sóc thú cưng — đa trang gồm
                 shop, đặt lịch spa, blog, đăng nhập/đăng ký và trang liên hệ,
                 xây dựng hoàn toàn bằng HTML/CSS/JS thuần.
@@ -376,14 +570,21 @@
               <div class="project-tags">
                 <span>HTML</span><span>CSS</span><span>JavaScript</span>
               </div>
-              <a
-                href="https://github.com/Thjnn/Petio"
-                target="_blank"
-                rel="noopener"
-                class="project-link"
-              >
-                Xem trên GitHub <span class="arrow">→</span>
-              </a>
+              <div class="project-links">
+                <a
+                  href="https://github.com/Thjnn/Petio"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-link"
+                >
+                  <span data-i18n="proj.github">Xem trên GitHub</span>
+                  <span class="arrow">→</span>
+                </a>
+                <a href="#" class="project-link project-demo" data-demo>
+                  <span data-i18n="proj.demo">Live demo</span>
+                  <span class="arrow">↗</span>
+                </a>
+              </div>
             </div>
             <div class="project-visual">
               <div class="visual-frame petio-visual">
@@ -408,12 +609,71 @@
       </div>
     </section>
 
+    <!-- CASE STUDY -->
+    <section class="case" id="case-study">
+      <div class="container">
+        <p class="section-tag reveal-up" data-i18n="case.tag">
+          05 — Case study
+        </p>
+        <h2 class="reveal-up" data-i18n="case.h2">
+          ZomZop — từ bài toán lớn đến hệ thống chạy được.
+        </h2>
+
+        <div class="case-grid" data-stagger>
+          <div class="case-card reveal-up">
+            <span class="case-index">01</span>
+            <h3 data-i18n="case.problem.t">Vấn đề</h3>
+            <p data-i18n="case.problem.d">
+              Một chuỗi cửa hàng đồ ăn nhanh cần quản lý nhiều chi nhánh, nhiều
+              vai trò (chủ, quản lý, thu ngân, bếp, shipper, khách), đồng thời
+              cần đơn hàng cập nhật tức thời và chấm công minh bạch cho nhân
+              viên.
+            </p>
+          </div>
+          <div class="case-card reveal-up">
+            <span class="case-index">02</span>
+            <h3 data-i18n="case.solution.t">Giải pháp</h3>
+            <p data-i18n="case.solution.d">
+              Chia hệ thống theo vai trò &amp; module rõ ràng; dùng Laravel
+              Reverb để đẩy trạng thái đơn hàng realtime; tích hợp Gemini AI gợi
+              ý món và face-api.js chấm công bằng khuôn mặt; đóng gói PWA để dùng
+              như app.
+            </p>
+          </div>
+          <div class="case-card reveal-up">
+            <span class="case-index">03</span>
+            <h3 data-i18n="case.arch.t">Kiến trúc</h3>
+            <p data-i18n="case.arch.d">
+              CSDL 21 bảng thiết kế bằng ERD (Mermaid); Laravel 13 + MySQL cho
+              backend &amp; REST API; hàng đợi &amp; websocket cho realtime;
+              phân quyền 6 vai trò bằng middleware.
+            </p>
+            <div class="case-stack">
+              <span>Laravel 13</span><span>MySQL</span><span>Reverb</span
+              ><span>Gemini</span><span>face-api.js</span><span>PWA</span>
+            </div>
+          </div>
+          <div class="case-card reveal-up case-result">
+            <span class="case-index">04</span>
+            <h3 data-i18n="case.result.t">Kết quả</h3>
+            <p data-i18n="case.result.d">
+              Hệ thống hoàn chỉnh cho đồ án tốt nghiệp: đặt món realtime, gợi ý
+              bằng AI, chấm công tự động — chứng minh khả năng chia nhỏ và làm
+              chủ một bài toán phức tạp từ đầu đến cuối.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="contact" id="contact">
       <div class="container contact-inner">
-        <p class="section-tag reveal-up">04 — Liên hệ</p>
-        <h2 class="reveal-up">Cùng trao đổi về dự án tiếp theo nhé.</h2>
-        <p class="contact-text reveal-up">
+        <p class="section-tag reveal-up" data-i18n="contact.tag">06 — Liên hệ</p>
+        <h2 class="reveal-up" data-i18n="contact.h2">
+          Cùng trao đổi về dự án tiếp theo nhé.
+        </h2>
+        <p class="contact-text reveal-up" data-i18n="contact.text">
           Mình luôn sẵn lòng trao đổi về cơ hội thực tập, dự án freelance hoặc
           đơn giản là nói về frontend animation.
         </p>
@@ -424,6 +684,14 @@
             rel="noopener"
             class="btn btn-primary reveal-up"
             >thinh023101057@tgu.edu.vn</a
+          >
+          <a
+            href="cv.html"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost reveal-up"
+            data-i18n="contact.cv"
+            >Tải CV (PDF)</a
           >
           <a
             href="https://github.com/Thjnn"
@@ -439,7 +707,7 @@
     <footer class="footer">
       <div class="container footer-inner">
         <span>© 2026 Cao Phúc Thịnh.</span>
-        <a href="#home">Về đầu trang ↑</a>
+        <a href="#home" data-i18n="footer.top">Về đầu trang ↑</a>
       </div>
     </footer>
 
@@ -450,6 +718,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/effects.js"></script>
   </body>
 </html>

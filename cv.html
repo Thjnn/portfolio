@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV — Cao Phúc Thịnh</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0b1b3b;
+        --blue-600: #2563eb;
+        --blue-700: #1e4fc4;
+        --blue-100: #e8f0ff;
+        --cyan: #22b8e8;
+        --ink: #101729;
+        --ink-soft: #4b5670;
+        --border: #e3e8f3;
+        --font: "Plus Jakarta Sans", system-ui, sans-serif;
+        --mono: "JetBrains Mono", monospace;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: var(--font);
+        color: var(--ink);
+        background: #eef2f9;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Toolbar (ẩn khi in) */
+      .toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .tbtn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        border: 1.5px solid transparent;
+        text-decoration: none;
+        transition: transform 0.25s, box-shadow 0.25s;
+      }
+      .tbtn-primary {
+        background: var(--navy);
+        color: #fff;
+        box-shadow: 0 10px 24px -8px rgba(15, 42, 94, 0.45);
+      }
+      .tbtn-primary:hover {
+        transform: translateY(-2px);
+      }
+      .tbtn-ghost {
+        border-color: var(--border);
+        color: var(--navy);
+        background: #fff;
+      }
+
+      /* Trang A4 */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 24px auto;
+        background: #fff;
+        display: grid;
+        grid-template-columns: 68mm 1fr;
+        box-shadow: 0 20px 60px -30px rgba(15, 27, 59, 0.4);
+        overflow: hidden;
+      }
+
+      /* Sidebar */
+      .side {
+        background: var(--navy);
+        color: #fff;
+        padding: 26px 22px;
+      }
+      .side .avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 1.3rem;
+        background: linear-gradient(135deg, var(--blue-600), var(--cyan));
+        margin-bottom: 16px;
+      }
+      .side h1 {
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+      }
+      .side .role {
+        font-family: var(--mono);
+        font-size: 0.78rem;
+        color: var(--cyan);
+        margin: 6px 0 18px;
+      }
+      .side-block {
+        margin-top: 20px;
+      }
+      .side-block h2 {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.55);
+        margin-bottom: 10px;
+      }
+      .side-block a,
+      .side-block p,
+      .side-block li {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        word-break: break-word;
+      }
+      .contact-list li {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+      .contact-list .ic {
+        color: var(--cyan);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .chips span {
+        font-family: var(--mono);
+        font-size: 0.68rem;
+        padding: 4px 9px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .side-block ul {
+        list-style: none;
+      }
+      .side-block ul li {
+        margin-bottom: 7px;
+      }
+
+      /* Main */
+      .main {
+        padding: 30px 30px;
+      }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: #0f8a4d;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        padding: 5px 12px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+      }
+      .status i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #10b981;
+      }
+      .main-block {
+        margin-bottom: 22px;
+      }
+      .main-block > h2 {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--blue-600);
+        margin-bottom: 10px;
+        padding-bottom: 6px;
+        border-bottom: 2px solid var(--blue-100);
+      }
+      .summary {
+        font-size: 0.9rem;
+        color: var(--ink-soft);
+      }
+      .entry {
+        margin-bottom: 14px;
+      }
+      .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .entry-head h3 {
+        font-size: 0.98rem;
+        color: var(--navy);
+      }
+      .entry-head .date {
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        color: var(--blue-600);
+        white-space: nowrap;
+      }
+      .entry .meta {
+        font-size: 0.78rem;
+        color: var(--ink-soft);
+        margin-bottom: 4px;
+      }
+      .entry p {
+        font-size: 0.85rem;
+        color: var(--ink-soft);
+      }
+      .entry .tags {
+        margin-top: 5px;
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        color: var(--blue-700);
+      }
+
+      @media (max-width: 800px) {
+        .page {
+          width: 100%;
+          grid-template-columns: 1fr;
+          margin: 12px auto;
+        }
+      }
+
+      /* IN / PDF */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body {
+          background: #fff;
+        }
+        .toolbar {
+          display: none;
+        }
+        .page {
+          margin: 0;
+          box-shadow: none;
+          width: 210mm;
+        }
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toolbar">
+      <button class="tbtn tbtn-primary" onclick="window.print()">
+        ⬇ Tải PDF / In
+      </button>
+      <a class="tbtn tbtn-ghost" href="index.html">← Về portfolio</a>
+    </div>
+
+    <div class="page">
+      <!-- SIDEBAR -->
+      <aside class="side">
+        <div class="avatar">CPT</div>
+        <h1>Cao Phúc Thịnh</h1>
+        <p class="role">Web Developer · Frontend & Fullstack</p>
+
+        <div class="side-block">
+          <h2>Liên hệ</h2>
+          <ul class="contact-list">
+            <li><span class="ic">✉</span> thinh023101057@tgu.edu.vn</li>
+            <li><span class="ic">⌂</span> github.com/Thjnn</li>
+            <li><span class="ic">◎</span> Tiền Giang, Việt Nam</li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <h2>Kỹ năng</h2>
+          <div class="chips">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+            <span>GSAP</span><span>Tailwind</span><span>PHP 8.3</span>
+            <span>Laravel 13</span><span>MySQL</span><span>Reverb</span>
+            <span>REST API</span><span>Gemini API</span><span>face-api.js</span>
+            <span>Git/GitHub</span><span>PWA</span>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <h2>Ngoại ngữ</h2>
+          <ul>
+            <li>🇻🇳 Tiếng Việt — bản ngữ</li>
+            <li>🇬🇧 Tiếng Anh — đọc tài liệu chuyên ngành</li>
+          </ul>
+        </div>
+
+        <div class="side-block">
+          <h2>Đang học</h2>
+          <ul>
+            <li>Hệ điều hành</li>
+            <li>AI tìm kiếm A*</li>
+            <li>Phát triển Android</li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <main class="main">
+        <span class="status"
+          ><i></i> Đang tìm vị trí Thực tập / Fresher — sẵn sàng bắt đầu</span
+        >
+
+        <div class="main-block">
+          <h2>Giới thiệu</h2>
+          <p class="summary">
+            Sinh viên năm 3 ngành Công nghệ thông tin tại Đại học Tiền Giang.
+            Tập trung song song vào backend chắc chắn với Laravel/MySQL và
+            frontend chuyển động, có chiều sâu kỹ thuật bằng GSAP. Yêu thích chia
+            nhỏ bài toán lớn thành các phần kiểm soát được.
+          </p>
+        </div>
+
+        <div class="main-block">
+          <h2>Học vấn</h2>
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Đại học Tiền Giang — Công nghệ thông tin</h3>
+              <span class="date">2023 – 2027 (dự kiến)</span>
+            </div>
+            <p class="meta">Cử nhân CNTT · Phát triển Web</p>
+          </div>
+        </div>
+
+        <div class="main-block">
+          <h2>Dự án tiêu biểu</h2>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>ZomZop — Đồ án tốt nghiệp</h3>
+              <span class="date">2026</span>
+            </div>
+            <p>
+              Hệ thống đặt món ăn nhanh đa chi nhánh: 21 bảng dữ liệu, 6 vai trò
+              phân quyền, gợi ý món bằng Gemini AI, cập nhật đơn realtime với
+              Laravel Reverb, chấm công bằng nhận diện khuôn mặt, hỗ trợ PWA.
+            </p>
+            <p class="tags">Laravel 13 · MySQL · Gemini API · face-api.js · Reverb</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Văn Phòng UniStyle — Quản trị bán hàng</h3>
+              <span class="date">2025</span>
+            </div>
+            <p>
+              Dashboard admin đầy đủ cho cửa hàng văn phòng phẩm/thời trang:
+              quản lý đơn hàng, kho, khuyến mãi, banner. Thiết kế CSDL ERD 18
+              bảng.
+            </p>
+            <p class="tags">PHP · MySQL · Admin Dashboard</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-head">
+              <h3>Petio — Website chăm sóc thú cưng</h3>
+              <span class="date">2024</span>
+            </div>
+            <p>
+              Website đa trang: shop, đặt lịch spa, blog, đăng nhập/đăng ký, liên
+              hệ — xây dựng hoàn toàn bằng HTML/CSS/JS thuần.
+            </p>
+            <p class="tags">HTML · CSS · JavaScript</p>
+          </div>
+        </div>
+
+        <div class="main-block">
+          <h2>Điểm mạnh</h2>
+          <p class="summary">
+            Tư duy hệ thống · Thẩm mỹ giao diện · Tự học nhanh · Làm việc hiệu
+            quả cùng AI coding assistant · Quen quy trình Git/GitHub.
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

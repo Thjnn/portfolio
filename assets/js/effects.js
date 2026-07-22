@@ -259,11 +259,20 @@
     });
   }
 
+  // Ẩn nút "Live demo" nào chưa được điền link (href còn là "#")
+  function hideEmptyDemos() {
+    document.querySelectorAll(".project-demo[data-demo]").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (!href || href === "#") a.style.display = "none";
+    });
+  }
+
   ready(() => {
     initHeroBackground();
     initCursor();
     initMagnetic();
     initTilt();
     initGlare();
+    hideEmptyDemos();
   });
 })();
